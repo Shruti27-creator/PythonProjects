@@ -1,0 +1,86 @@
+import datetime
+def getdata():
+     return datetime.datetime.now()
+
+def log(k):
+    if k==1:
+        c = int(input("press 1 for exercise 2 for diet"))
+        if c==1:
+            item = input("type any here\n")
+            with open("user1_exer.txt","a") as op:
+                op.write(str([str(getdata())])+":"+item+"\n")
+            print("successfully added")
+        if c==2:
+            item = input("type any here")
+            with open("user1_diet.txt", "a") as op:
+                op.write(str([str(getdata())])+":"+item+"\n")
+        print("successfully added")
+    elif (k == 2):
+        c = int(input("press 1 for exercise 2 for diet"))
+        if c==1:
+            item = input("type any here")
+            with open("user2_exer.txt", "a") as op:
+                op.write(str([str(getdata())])+":"+item+"\n")
+
+        print("successfully added")
+        if c==2:
+            item = input("type any here")
+            with open("user2_diet.txt", "a") as op:
+                op.write(str([str(getdata())])+":"+item+"\n")
+            print("successfully added")
+    elif k == 3:
+        c = int(input("press 1 for exercise 2 for diet"))
+        if c==1:
+            item = input("type any here")
+            with open("user3_exer.txt", "a") as op:
+                op.write(str([str(getdata())]) + ":" + item + "\n")
+        print("successfully added")
+        if c==2:
+            item = input("type any here")
+            with open("user3_diet.txt", "a") as op:
+                op.write(str([str(getdata())]) + ":" + item + "\n")
+        print("successfully added")
+    else:
+         print("please enter a right input /user1,user2,user3/")
+
+def retrieve(k):
+    if k == 1:
+        c = int(input("enter 1 for exercise 2 for diet"))
+        if c == 1:
+            with open("user1_exer.txt") as op:
+                for i in op:
+                    print("i",i)
+        elif c==2:
+            with open("user1_diet.txt") as op:
+                for i in op:
+                    print(i,"i")
+    elif k ==2:
+        c = input("enter 1 for exercise 2 for diet")
+        if c==1:
+            with open("user2_exer.txt") as op:
+                for i in op:
+                    print(i,"i")
+        elif c==2:
+            with open("user2_diet.txt") as op:
+                for i in op:
+                    print(i,end="")
+    elif k== 3:
+        c = input(" enter 1 for exercise 2 for diet")
+        if c==1 :
+            with open("user3_exer.txt") as op:
+               for i in op:
+                   print(i,end="")
+        elif c == 2:
+            with open("user3_diet.txt") as op:
+                for i in op:
+                    print(i, end="")
+    else:
+        print("please enter correct input/user1/user2/user3")
+
+a = int(input("enter 1 for log 2 for retrieve"))
+if a==1:
+     b = int(input("enter 1 for user1,2 for user2,3 for user3 "))
+     log(b)
+else:
+    b = int(input("enter 1 for user1,2 for user2,3 for user3"))
+    retrieve(b)
