@@ -1,0 +1,19 @@
+import cv2
+import numpy as np
+import time
+import vehicles
+cap=cv2.VideoCapture(“video 1.mp4”)
+fgbg=cv2.createBackgroundSubtractorMOG2(detectShadows=False,history=200,varThreshold = 90)
+kernalOp = np.ones((3,3),np.uint8)
+kernalOp2 = np.ones((5,5),np.uint8)
+kernalCl = np.ones((11,11),np.uint8)
+font = cv2.FONT_HERSHEY_SIMPLEX
+cars = []
+max_p_age = 5
+pid = 1
+cnt_up=0
+cnt_down=0
+line_up=400
+line_down=250
+up_limit=230
+down_limit=int(4.5*(500/5))
